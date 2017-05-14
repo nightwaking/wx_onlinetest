@@ -1,0 +1,39 @@
+<include file="Public/head"/>
+<body ontouchstart>
+    <div class="page__bd">
+        <div class="weui-cells__title">测试题目</div>
+
+        <volist name="kind" id="vo">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">已有题目:{$vo.q_question}</div>
+                <div>
+                    <a class="weui-btn weui-btn_mini weui-btn_default" href= "{:U('Pyschology/add_choice', array('id'=>$vo['qid'], 'sid'=>$vo['add_id']))}">添加选项</a>
+                    <a class="weui-btn weui-btn_mini weui-btn_warn" href= "{:U('Pyschology/question_delete', array('id'=>$vo['qid']))}">删除题目</a>
+                </div>
+            </div>
+        </div>
+        </volist>
+    </div>
+
+    <form action="{:U('Pyschology/add_question')}" method="get">
+    <div class="weui-cell weui-cell_select weui-cell_select-before">
+                <div class="weui-cell__hd">
+                    <select class="weui-select" name="select_number">
+                        <option value="">选择增加的题目数目</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="weui-cell__bd">
+                   <button type="submit" class="weui-btn weui-btn_plain-primary">增加测试题目</button>
+                </div>
+                <input type="text" name="q_type" value="0" hidden="hidden">
+                <input type="text" name="skill_id" value="{$skillid}" hidden="hidden">
+                
+        </div>
+    </form>
+<include file="Public/foot"/>

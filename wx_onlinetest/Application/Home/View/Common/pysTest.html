@@ -1,0 +1,17 @@
+<include file="Public/head"/>
+<body ontouchstart>
+    <div class="page__bd">
+        <div class="weui-cells__title">素质考评题目</div>
+
+        <volist name="kind" id="vo">
+        <a href="{:U('Common/pyDisplay', array('id'=>$vo['pid'], 'type' => 0))}">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">{$vo.p_name}</div>
+            </div>
+        </div>
+        </a>
+        </volist>  
+    </div>
+
+<include file="Public/foot"/>

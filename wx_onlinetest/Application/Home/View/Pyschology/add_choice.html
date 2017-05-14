@@ -1,0 +1,28 @@
+<include file="Public/head"/>
+<body ontouchstart>
+<volist name="kind" id="vo">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">{$vo.choice_name}</div>
+                <a class="weui-btn weui-btn_mini weui-btn_warn" href= "{:U('Pyschology/choice_delete', array('id'=>$vo['cid'], 'sid'=>$sid))}">删除选项</a>   
+            </div>
+        </div>
+</volist> 
+<form action="{:U('Pyschology/add_choice')}" method="post">
+        <div class="weui-cells__title">添加选项</div>
+       	<for start="1" end="5">
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="choice_{$i}" placeholder="请输入选择项{$i}">    
+                </div>
+            </div>
+        </div>
+        </for>
+        <input type="text" name="skill_id" value="{$qid}" hidden>
+        <input type="text" name="s_id" value="{$sid}" hidden>
+
+        <button type="submit" class="weui-btn weui-btn_plain-primary">添加</button>
+</form>
+
+<include file="Public/foot"/>

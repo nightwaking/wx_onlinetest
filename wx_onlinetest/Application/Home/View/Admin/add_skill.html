@@ -1,0 +1,14 @@
+<include file="Public/head"/>
+<body ontouchstart>
+<form action="{:U('Admin/add_skill')}" method="post">
+        <div class="weui-cells__title">测评添加</div>
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="skill_name" placeholder="输人测评名称">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="weui-btn weui-btn_plain-primary">增加</button>   
+</form>
+<include file="Public/foot"/>

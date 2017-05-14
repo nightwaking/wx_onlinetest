@@ -1,0 +1,41 @@
+<include file="Public/head"/>
+<body ontouchstart>
+    <div class="page__bd">
+        <div class="weui-cells__title">测试题目</div>
+        <form action="{:U('Common/pyDisplay')}" method="post">
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__bd">套题总分数:{$mark}</div>
+        </div>
+        <volist name="kind" id="vo"> 
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">题目:{$vo.q_question}</div>
+            </div>
+            <div class="weui-cells weui-cells_radio">
+            <for start="1" end="5">
+
+            <volist name="choice" id="ve">
+            <if condition="(($vo['qid']) eq ($ve['choice_sid']))">
+            <label class="weui-cell weui-check__label" for="({$ve.cid}+{$i})">
+                <div class="weui-cell__bd">
+                    <p>{$ve.choice_name}</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" class="weui-check" name="radio_{$vo.qid}" id="({$ve.cid}+{$i})" value="">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            </if>
+            </volist>
+
+            </for>
+            </div>
+        </div>
+        </volist>
+        <input type="text" name="count" value="{$count}" hidden="hidden">
+        <input type="text" name="sid" value="{$sid}" hidden="hidden">
+        <button type="submit" class="weui-btn weui-btn_plain-primary">提交试卷</button>
+        </form>
+    </div>
+
+<include file="Public/user_footer"/>

@@ -1,0 +1,50 @@
+<include file="Public/head"/>
+<body ontouchstart>
+    <div class="page__bd">
+        <div class="weui-cells__title">测试题目</div>
+        <form action="{:U('Common/skillDisplay')}" method="post">
+        <div class="weui-cell weui-cell_access">
+            <div class="weui-cell__bd">套题总分数:{$mark}</div>
+        </div>
+        <volist name="kind" id="vo"> 
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">题目:{$vo.q_question}</div>
+            </div>
+            <div class="weui-cells weui-cells_radio">
+            <for start="1" end="4">
+            <label class="weui-cell weui-check__label" for="({$vo.qid}+{$i})">
+                <div class="weui-cell__bd">
+                    <p class="show_answer">{$i}</p>
+                </div>
+                <div class="weui-cell__ft">
+                    <input type="radio" class="weui-check show_title" name="radio_{$vo.qid}" id="({$vo.qid}+{$i})" value="{$i}">
+                    <span class="weui-icon-checked"></span>
+                </div>
+            </label>
+            </for>
+            </div>
+        </div>
+        </volist>
+        <input type="text" name="count" value="{$count}" hidden="hidden">
+        <input type="text" name="sid" value="{$sid}" hidden="hidden">
+        <button type="submit" class="weui-btn weui-btn_plain-primary">提交试卷</button>
+        </form>
+    </div>
+<script type="text/javascript">
+    window.onload = function(){
+        var showTitle = document.getElementsByClassName("show_title");
+        var showAnswer = document.getElementsByClassName("show_answer");
+        for (var i=0; i<showTitle.length; i++){
+            var showValue = showTitle[i].value;
+            if (showValue == 1){
+                showAnswer[i].innerHTML = "未掌握";
+            }else if(showValue == 2){
+                showAnswer[i].innerHTML = "基本掌握";
+            }else{
+                showAnswer[i].innerHTML = "完全掌握";
+            }
+        }
+    }
+</script>
+<include file="Public/user_footer"/>

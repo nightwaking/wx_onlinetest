@@ -1,0 +1,21 @@
+<include file="Public/head"/>
+<body ontouchstart>
+ <form action="{:U('Admin/add_question')}" method="post">
+        <define name="NUMBER" value="$number" />
+        <div class="weui-cells__title">添加题目</div>
+       	<for start="1" end="NUMBER">
+        <div class="weui-cells">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" name="question_{$i}" placeholder="请输入题目">    
+                </div>
+            </div>
+        </div>
+        </for>
+        <input type="text" name="num" value="{$number}" hidden="hidden">
+        <input type="text" name="type" value="{$type}" hidden="hidden">
+        <input type="text" name="skill_id" value="{$skill_id}" hidden="hidden">
+        <button type="submit" class="weui-btn weui-btn_plain-primary">添加</button>   
+</form>
+
+<include file="Public/foot"/>

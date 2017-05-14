@@ -1,0 +1,45 @@
+<include file="Public/head"/>
+    <div class="page_hd">
+        <div class="weui-cells__title">员工分数查看</div>
+    </div>
+    <foreach name="skill" item="vo">
+    <div class="weui-form-preview">
+            <div class="weui-form-preview__hd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">用户名</label>
+                    <em class="weui-form-preview__value">{$vo.user_name}</em>
+                </div>
+            </div>
+            <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">技能测试名</label>
+                    <span class="weui-form-preview__value">{$vo.skill_name}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">技能测试分数</label>
+                    <span class="weui-form-preview__value">{$vo.skill_mark}</span>
+                </div>
+            </div>
+        </div>
+    </foreach>
+    <foreach name="psy" item="vo">
+    <div class="weui-form-preview">
+            <div class="weui-form-preview__hd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">用户名</label>
+                    <em class="weui-form-preview__value">{$vo.user_name}</em>
+                </div>
+            </div>
+            <div class="weui-form-preview__bd">
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">素质测试名</label>
+                    <span class="weui-form-preview__value">{$vo.p_name}</span>
+                </div>
+                <div class="weui-form-preview__item">
+                    <label class="weui-form-preview__label">素质测试分数</label>
+                    <span class="weui-form-preview__value">{$vo.psy_mark}</span>
+                </div>
+            </div>
+        </div> 
+    </foreach>
+<include file="Public/foot"/>

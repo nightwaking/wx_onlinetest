@@ -1,0 +1,37 @@
+<include file="Public/head"/>
+<body ontouchstart>
+    <div class="page__bd">
+        <div class="weui-cells__title">素质考评题目</div>
+
+        <volist name="kind" id="vo">
+        <a href="{:U('Pyschology/pyschology_display', array('id'=>$vo['pid'], 'type' => 0))}">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">{$vo.p_name}</div>
+            </div>
+        </div>
+        </a>
+        <div class="weui-form-preview__ft">
+                <a class="weui-form-preview__btn weui-form-preview__btn_default psStauts" href="{:U('Pyschology/pyschology_status', array('id'=>$vo['pid'],'status' => $vo['ps_status']))}"></a>
+                <div class="ps_status" hidden="hidden">{$vo.ps_status}</div>
+                <a class="weui-form-preview__btn weui-form-preview__btn_default" href="{:U('Pyschology/pyschology_delete', array('id'=>$vo['pid']))}">删除</a>
+            </div>
+        </volist>  
+    </div>
+
+    <a href="{:U('Pyschology/pyschology_add')}" class="weui-btn weui-btn_plain-primary" id="btn">新加测试</a>
+<include file="Public/foot"/>
+
+<script type="text/javascript">
+    var psStatus = document.getElementsByClassName('psStauts');
+    var psShow = document.getElementsByClassName('ps_status');
+    for (var i=0; i<psStatus.length; i++){
+        if (psShow[i].innerHTML == 1){
+            psStatus[i].innerHTML = "禁用";
+        }else{
+            psStatus[i].innerHTML = "启用";
+        }
+    }
+    
+    
+</script>

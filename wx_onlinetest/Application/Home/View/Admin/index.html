@@ -1,0 +1,17 @@
+<include file="Public/head"/>
+    <div class="page_hd">
+        <div class="weui-cells__title">员工测评系统</div>
+    </div>
+    <foreach name="kind" item="vo">
+    <div class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+            <label class="weui-form-preview__label">用户名</label>
+            <em class="weui-form-preview__value">{$vo.user_name}</em>
+        </div>
+        <div class="weui-form-preview__ft order_cannel">
+            <a class="weui-form-preview__btn weui-form-preview__btn_default" href="{:U('Admin/delete', array('id'=>$vo['uid']))}">删除用户</a>
+        </div> 
+    </div>
+    <br> 
+    </foreach>
+<include file="Public/foot"/>

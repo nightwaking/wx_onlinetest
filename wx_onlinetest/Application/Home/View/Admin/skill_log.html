@@ -1,0 +1,35 @@
+<include file="Public/head"/>
+<body ontouchstart>
+    <div class="page__bd">
+        <div class="weui-cells__title">技能考评题目</div>
+
+        <volist name="kind" id="vo">
+        <a href="{:U('Admin/skill_display', array('id'=>$vo['sid'], 'type' => 1))}">
+        <div class="weui-cells">
+            <div class="weui-cell weui-cell_access">
+                <div class="weui-cell__bd">{$vo.skill_name}</div>
+            </div>
+        </div>
+        </a>
+        <div class="weui-form-preview__ft">
+                <a class="weui-form-preview__btn weui-form-preview__btn_default showStatus" href="{:U('Admin/skill_status', array('id'=>$vo['sid'],'status' => $vo['skill_status']))}"></a>
+                <div class="skill_status" hidden="hidden">{$vo.skill_status}</div>
+                <a class="weui-form-preview__btn weui-form-preview__btn_default" href="{:U('Admin/skill_delete', array('id'=>$vo['sid']))}">删除</a>
+        </div>
+        </volist>  
+    </div>
+
+    <a href="{:U('Admin/add_skill')}" class="weui-btn weui-btn_plain-primary" id="btn">新加测试</a>
+<include file="Public/foot"/>
+
+<script type="text/javascript">
+    var skillStatus = document.getElementsByClassName('showStatus');
+    var skill_Show = document.getElementsByClassName('skill_status');
+    for (var i=0; i<skillStatus.length; i++){
+        if (skill_Show[i].innerHTML == 1){
+            skillStatus[i].innerHTML = "禁用";
+        }else{
+            skillStatus[i].innerHTML = "启用";
+        }
+    }
+</script>
